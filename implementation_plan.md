@@ -21,9 +21,10 @@ We will build **Formfit** as a **cross-platform Mobile App** (using React Native
 ## 2. Core Features & Scientific Foundation
 
 ### A. The Scientific Workout Engine (Customization & Periodization)
-1. **Dynamic Injury Mapping**:
+1. **Dynamic Injury Mapping & Classification**:
    - A logic matrix that links injuries to affected joints and muscle groups.
-   - *Example*: If a user has a "Lower Back Herniation," the system automatically flags and replaces spinal-loading exercises (e.g., Barbell Back Squats, Deadlifts) with spine-sparing alternatives (e.g., Goblet Squats, Bulgarian Split Squats, Leg Press) and adds specific core-stability exercises (McGill Big 3).
+   - **Minor pains, joint soreness, and minor fractures** (e.g. fully healed or small fractures): The engine auto-swaps exercises to load-free variations (e.g., swapping spinal-loading or high-impact moves with joint-friendly machine alternatives).
+   - **Severe/Acute injuries**: The system flags the profile, blocks automated workout generation for the affected area, and displays a prominent recommendation to consult a physical therapist.
 2. **Mental & Physical Readiness (Daily Auto-Regulation)**:
    - A quick 3-question check-in before starting: *Sleep quality, Soreness, Stress/Energy level*.
    - If energy is low or soreness is high, the engine automatically scales back the volume (sets/reps) or intensity (weight/RPE - Rate of Perceived Exertion) for that session, preventing burnout and injury.
@@ -41,8 +42,9 @@ We will build **Formfit** as a **cross-platform Mobile App** (using React Native
    - Offers simple recipe instructions, shopping lists, and dynamic meal-swapping capabilities.
 
 ### C. Self-Guided Gym Experience (Comfort & Confidence)
-1. **Discreet Workout Companion**:
-   - High-quality, looping video demonstrations for every exercise.
+1. **Discreet Workout Companion (Admin-Synced)**:
+   - High-quality, looping video/photo demonstrations for every exercise.
+   - **Web Admin Dashboard Sync**: The Web Dashboard provides a media management console where we can upload custom photos/videos or link online resources for each exercise. These sync instantly to stream inside the Mobile App.
    - Direct, concise form tips focused on safety and execution.
    - *No-shame instructions*: Simple explanations of how to set up gym machines, resolving the barrier for beginners who feel self-conscious asking trainers.
 2. **Interactive Logging**:
@@ -83,21 +85,30 @@ graph TD
 
 ---
 
-## 4. User Review Required
+## 4. Decisions Made (Based on User Feedback)
 
-> [!IMPORTANT]
-> **Aesthetic Theme & Branding**: For a modern gym platform, a premium dark-themed aesthetic with vibrant accents (e.g., neon lime, cyber cyan, or electric orange) provides a motivating, premium feel. We should align on the color theme early.
-> 
-> **Workout Data Source**: To make the workout and diet plans scientific, we must use a curated database of exercises (with video links/GIFs and primary/secondary muscle indicators) and foods. Do you want to build this curated list manually, scrape public exercise libraries, or integrate with a third-party fitness API?
+- **Target Audience / Distribution**: **Universal Exercise Recommender**. The app is a standalone product open to any user, not limited to a single gym.
+- **Trainer Involvement**: **Solo Virtual Trainer**. The app will run entirely using the core personalization model and does not require trainer portals or scheduling synchronization for launch.
+- **Injury Severity**: Classified system where joint pain, soreness, and minor recovered fractures get custom exercise alternatives, while severe acute injuries trigger standard medical alerts/blocks.
+- **Exercise Library Media**: Custom videos and photos will be uploadable/configurable via the Web Admin Dashboard, which syncs directly with the Mobile App to provide a self-guided experience.
 
 ---
 
-## 5. Open Questions
+## 5. User Review Required / Open Items
+
+> [!IMPORTANT]
+> **Aesthetic Theme & Branding**: The user is finalizing the branding/accent colors and will let us know shortly.
 
 > [!WARNING]
-> 1. **Gym-Specific vs. Universal**: Is this app built for a *specific* gym (syncing with their exact machine brands and trainer schedules), or is it a *universal* product that any gym-goer can download and use in any gym?
-> 2. **Trainer Involvement**: Should gym trainers have their own portal in the app to assign workouts to their specific clients, or should the app's algorithm act as the sole "virtual trainer"?
-> 3. **Injuries & Medical Disclaimer**: Because we are recommending exercises for people with injuries, we must include a clear medical disclaimer. Are there specific severe injuries you want the app to outright block and recommend a physical therapist for, rather than attempting to auto-program around?
+> **Exercise Database Strategy (Clarification)**:
+> Since you mentioned having a little confusion about how to handle the data source for exercises/foods, here is a recommendation:
+> 
+> * **Recommended Hybrid Solution**:
+>   1. We start with a **pre-populated, open-source database** containing name, difficulty, target muscle groups, and placeholder guidelines for ~200 common gym exercises. This gives us a fully functional app instantly.
+>   2. We provide an **Admin Dashboard** (Web) that allows you to log in, search these exercises, and overwrite their description, photos, or video links with your custom gym recordings.
+>   3. As you record better videos, you can progressively replace the placeholder media over time.
+> 
+> *Does this hybrid strategy sound like a solid plan?*
 
 ---
 
